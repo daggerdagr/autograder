@@ -206,7 +206,69 @@ function AGTest(outputLog) {
         1 // points
     );
 
+    var input_2_2_2 = ["cakes are delicious"];
+    tip_2_2.newIOTest('r',  // testClass
+        blockName_2,          // blockSpec
+        input_2_2_2,        // input
+        function (output) {
+            // Output should be a list of numbers.
+            var expected,
+                actual;
+            console.log(output);
 
+            expected = ["c", "a", "k", "e", "s", " ", "a", "r", "e", " ", "d", "e", "l", "i", "c", "i", "o", "u", "s"];
+            if (output instanceof List) {
+                actual = output.asArray();
+            } else {
+                actual = output;
+            }
+            for (i = 0; i < actual.length; i++)
+            {
+                actual[i] = actual[i] + ""; //turns into strings
+            }
+            if (!_.isEqual(actual, expected)) {
+                tip_1_2.suggestion = 'The output should be ' + expected + ';';
+                tip_1_2.suggestion += ' but was ' + actual + '.';
+                return false;
+            }
+            return true;
+        },
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        1 // points
+    );
+
+    var input_2_2_3 = [""];
+    tip_2_2.newIOTest('r',  // testClass
+        blockName_2,          // blockSpec
+        input_2_2_3,        // input
+        function (output) {
+            // Output should be a list of numbers.
+            var expected,
+                actual;
+            console.log(output);
+
+            expected = [];
+            if (output instanceof List) {
+                actual = output.asArray();
+            } else {
+                actual = output;
+            }
+            for (i = 0; i < actual.length; i++)
+            {
+                actual[i] = actual[i] + ""; //turns into strings
+            }
+            if (!_.isEqual(actual, expected)) {
+                tip_1_2.suggestion = 'The output should be ' + expected + ';';
+                tip_1_2.suggestion += ' but was ' + actual + '.';
+                return false;
+            }
+            return true;
+        },
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        1 // points
+    );
 
 
     return fb;

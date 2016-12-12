@@ -94,5 +94,32 @@ function AGTest(outputLog) {
         0.5 // points
     );
 
+    tip_1_2.newIOTest('r',  // testClass
+        blockName,          // blockSpec
+        [ [92, 91, 90] , [] ], // input
+        [92, 91, 90],
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        0.5 // points
+    );
+
+    tip_1_2.newIOTest('r',  // testClass
+        blockName,          // blockSpec
+        [ [] , [] ], // input
+        [],
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        0.5 // points
+    );
+
+    tip_1_2.newIOTest('r',  // testClass
+        blockName,          // blockSpec
+        [ ['a', 'b', 'c'] , [1, 2] ], // input
+        ['a', 'b', 'c', 1, 2],
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        0.5 // points
+    );
+
     return fb;
 }

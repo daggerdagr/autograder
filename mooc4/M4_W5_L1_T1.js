@@ -73,6 +73,19 @@ function AGTest(outputLog) {
         1
         );
 
+    tip_1_1a.newAssertTest(
+        checkHOF_sort,
+        'Testing if the '+ sort +' block uses HOFs.',
+        'the '+ sort +' block uses HOFs.',
+        'Make sure you try and use HOFs.',
+        1
+    );
+
+    var checkHOF_sort = function()
+    {
+        return customBlockContains(sort, merge_sorted, undefined, spriteIndex);
+    }
+
     var tip_1_2 = chunk_1.newTip(
         'Your block should return the correct values for the given inputs.',
         'Great job! Your block reports the correct value for given inputs.'

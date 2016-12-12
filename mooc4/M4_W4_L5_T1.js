@@ -169,6 +169,68 @@ function AGTest(outputLog) {
         1 // points
     );       
 
+    var input_1_3_2 = [[3, 50, 1, 6], []];
+    tip_1_3.newIOTest('r',  // testClass
+        blockName,          // blockSpec
+        input_1_3_2,        // input
+        function (output) {
+            // Output should be a list of 2D lists.
+            var expected,
+                actual;
+
+            expected = ["1", "3", "6", "50"];
+            if (output instanceof List) {
+                actual = output.asArray();
+            } else {
+                actual = output;
+            }
+            for (i = 0; i < actual.length; i++)
+            {
+                actual[i] = actual[i] + ""; //turns into strings
+            }
+            if (!_.isEqual(actual, expected)) {
+                tip_1_2.suggestion = 'The output should be ' + expected + ';';
+                tip_1_2.suggestion += ' but was ' + actual + '. Make sure to sort your input lists!';
+                return false;
+            }
+            return true;
+        },
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        1 // points
+    );       
+
+    var input_1_3_2 = [[], []];
+    tip_1_3.newIOTest('r',  // testClass
+        blockName,          // blockSpec
+        input_1_3_2,        // input
+        function (output) {
+            // Output should be a list of 2D lists.
+            var expected,
+                actual;
+
+            expected = [];
+            if (output instanceof List) {
+                actual = output.asArray();
+            } else {
+                actual = output;
+            }
+            for (i = 0; i < actual.length; i++)
+            {
+                actual[i] = actual[i] + ""; //turns into strings
+            }
+            if (!_.isEqual(actual, expected)) {
+                tip_1_2.suggestion = 'The output should be ' + expected + ';';
+                tip_1_2.suggestion += ' but was ' + actual + '. What should happen if your function takes in empty lists?';
+                return false;
+            }
+            return true;
+        },
+        4 * 1000, // 4 second time out.
+        true, // is isolated
+        1 // points
+    );       
+
     return fb;
     
     }

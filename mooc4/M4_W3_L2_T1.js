@@ -209,7 +209,7 @@ function AGTest(outputLog) {
         'Great job! Your block reports the correct list for given inputs.'
     );
 
-    var input_2_2_1 = [1,150];
+    var input_2_2_1 = [1, 150];
     tip_2_2.newIOTest('r',  // testClass
         blockName_2,          // blockSpec
         input_2_2_1,        // input
@@ -231,7 +231,7 @@ function AGTest(outputLog) {
             }
             if (!_.isEqual(actual, expected)) {
                 tip_1_2.suggestion = 'The output should be ' + expected + ';';
-                tip_1_2.suggestion += ' but was ' + actual + '.';
+                tip_1_2.suggestion += ' but was ' + actual + '. Remember that the function should be inclusive!';
                 return false;
             }
             return true;
